@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const app = express();
 app.use(express.json());
 const SECRET_KEY = 'your-secret-key-change-this';
 
