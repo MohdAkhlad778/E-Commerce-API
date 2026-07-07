@@ -49,7 +49,7 @@ const orderSchema = new mongoose.Schema({
 const Order = new mongoose.model('Order', orderSchema);
 
 function verifyToken(req,res,next) {
-    const token = req,headers['authorization'];
+    const token = req.headers['authorization'];
     if(!token) {
         return res.json({error: 'No token provided'});
     }
