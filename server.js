@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 const SECRET_KEY = 'your-secret-key-change-this';
 
-mongooose.connect('mongodb.srv://krxakhlad_db_user:TKHSi5AjEZwt7hTh@cluster0.hettjmi.mongodb.net/ecommerce?retryWrites=true&w=majority')
+mongoose.connect('mongodb.srv://krxakhlad_db_user:TKHSi5AjEZwt7hTh@cluster0.hettjmi.mongodb.net/ecommerce?retryWrites=true&w=majority')
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log('Eroor:', err));
 
