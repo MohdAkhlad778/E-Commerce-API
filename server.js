@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 const SECRET_KEY = 'your-secret-key-change-this';
 
-mongoose.connect('mongodb.srv://krxakhlad_db_user:TKHSi5AjEZwt7hTh@cluster0.hettjmi.mongodb.net/ecommerce?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://krxakhlad_db_user:TKHSi5AjEZwt7hTh@cluster0.hettjmi.mongodb.net/ecommerce?retryWrites=true&w=majority')
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.log('Eroor:', err));
 
@@ -14,13 +14,13 @@ const userSchema = new mongoose.Schema({
     email: String,
     password: String
 });
-const User = new mongoose.model('user', userSchema);
+const User = mongoose.model('user', userSchema);
 
 const productSchema = new mongoose.Schema({
     name: String,
     price: Number,
     description: String,
-    sotck: Number,
+    stock: Number,
     createdAt: {type: Date, default: Date.now}
 });
 
@@ -46,7 +46,7 @@ const orderSchema = new mongoose.Schema({
     createdAt: {type: Date, default: Date.now }
 });
 
-const Order = new mongoose.model('Order', orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 function verifyToken(req,res,next) {
     const token = req.headers['authorization'];
